@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %} 
     <div>
         <h3>Estudo Flask</h3>
         <h5>@CampCodeBrasil</h5>
     </div>
 
+    {% include 'nav.html' %}
+
     <div>
-        <p>Bem-vindos a aula de FLASK</p>
-        <p>Terminei Minha conexão com o Git</p>
+        <p>Bem-vindo {{context.usuario}} a aula de FLASK</p>
+        <p><b>Idade:</b> {{context.idade}}</p>
+    
     </div>
-</body>
-</html>
+{% endblock %}
