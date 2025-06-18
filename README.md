@@ -1,4 +1,5 @@
-Gerenciador de Contatos Simples
+Gerenciador de Contatos Simples.
+
 Um aplicativo web simples desenvolvido com Flask para gerenciamento de contatos. Permite adicionar novos contatos, visualizar uma lista de contatos existentes e realizar pesquisas básicas por nome.
 
 🚀 Tecnologias Utilizadas
