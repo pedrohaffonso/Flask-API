@@ -24,21 +24,22 @@ def contato():
         form.save()
         return redirect(url_for('homepage'))
         
-    return render_template('contato.html', context=context, form=form)
+    return render_template('contato.html', form=form)
 
 @app.route("/contato/lista")
 def contatoLista():
-
-    if request.method == 'GET':
-        pesquisa = request.args.get('pesquisa', '')
+    pesquisa = request.args.get('pesquisa', '')
 
     dados = Contato.query.order_by(Contato.nome)
-    if pesquisa != '':
-        dados = dados.filter_by(nome =pesquisa)
+    if pesquisa:
+        dados = dados.filter(Contato.nome.ilike(f'%{pesquisa}%'))
     context = {'dados': dados.all()}
     
     return render_template('contato_lista.html', context=context)
 
+@app.route('/contato/<int:id>/')
+def contatoDetail(id):
+    obj = Contato.query.get(id)
 
-
+    return render_template('contatoDetail.html', obj=obj)
 
